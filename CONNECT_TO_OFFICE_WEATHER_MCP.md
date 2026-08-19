@@ -7,7 +7,7 @@ This is a demo MCP server exposing:
 
 **Server URL (given to you separately):**
 ```
-https://<your-ngrok-domain>.ngrok-free.app/mcp
+https://office-weather.onrender.com/mcp
 ```
 
 > ⚠️ This URL only works while the server owner has it running. Free ngrok domains
@@ -41,7 +41,7 @@ If this works, the server is reachable and you can move on to a real client.
    {
      "mcpServers": {
        "office-weather-demo": {
-         "url": "https://<your-ngrok-domain>.ngrok-free.app/mcp"
+         "url": "https://office-weather.onrender.com/mcp"
        }
      }
    }
@@ -61,7 +61,7 @@ If this works, the server is reachable and you can move on to a real client.
 Run this in a terminal (not inside a Claude Code session):
 
 ```bash
-claude mcp add --transport http office-weather-demo https://<your-ngrok-domain>.ngrok-free.app/mcp
+claude mcp add --transport http office-weather-demo https://office-weather.onrender.com/mcp
 ```
 
 Then start (or return to) a Claude Code session and verify:
@@ -83,7 +83,7 @@ You should see `office-weather-demo` listed as connected. From there you can:
 2. Click **Add custom connector**.
 3. Enter:
    - **Name**: `office-weather-demo`
-   - **URL**: `https://<your-ngrok-domain>.ngrok-free.app/mcp`
+   - **URL**: `https://office-weather.onrender.com/mcp`
 4. Save, and confirm it shows as **Connected**.
 5. Start a new chat and try:
    - "What's the weather at our Delhi office?"

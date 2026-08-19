@@ -33,7 +33,14 @@ mcp = FastMCP(
     host=os.environ.get("FASTMCP_HOST", "127.0.0.1"),
     port=int(os.environ.get("FASTMCP_PORT", "8000")),
     transport_security=TransportSecuritySettings(
-        allowed_hosts=["127.0.0.1:*", "localhost:*", "[::1]:*", NGROK_HOST, PUBLIC_HOST],
+        allowed_hosts=[
+            "127.0.0.1:*",
+            "localhost:*",
+            "[::1]:*",
+            NGROK_HOST,
+            PUBLIC_HOST,
+            f"{PUBLIC_HOST}:*",
+        ],
         allowed_origins=[
             "http://127.0.0.1:*",
             "http://localhost:*",

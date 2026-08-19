@@ -31,7 +31,7 @@ from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 from pydantic import AnyUrl
 
-MCP_SERVER_URL = "http://127.0.0.1:8000/mcp"
+MCP_SERVER_URL = os.environ.get("MCP_SERVER_URL", "http://127.0.0.1:8000/mcp")
 OFFICE_LOCATIONS_URI = AnyUrl("offices://locations")
 
 MODELS = {
