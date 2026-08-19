@@ -23,17 +23,23 @@ from mcp.server.transport_security import TransportSecuritySettings
 # Update this if ngrok assigns a new domain (free-tier domains change on restart).
 NGROK_HOST = "a7a6-2401-4900-1c85-8a81-7737-ae98-9d5c-3f83.ngrok-free.app"
 
+# Public hostname of the deployed server (e.g. Render, ngrok, ...), if any.
+# Requests arriving with a Host/Origin header outside this allowlist are
+# rejected by FastMCP's DNS-rebinding protection.
+PUBLIC_HOST = os.environ.get("PUBLIC_HOST", "office-weather.onrender.com")
+
 mcp = FastMCP(
     "office-weather-demo",
     host=os.environ.get("FASTMCP_HOST", "127.0.0.1"),
     port=int(os.environ.get("FASTMCP_PORT", "8000")),
     transport_security=TransportSecuritySettings(
-        allowed_hosts=["127.0.0.1:*", "localhost:*", "[::1]:*", NGROK_HOST],
+        allowed_hosts=["127.0.0.1:*", "localhost:*", "[::1]:*", NGROK_HOST, PUBLIC_HOST],
         allowed_origins=[
             "http://127.0.0.1:*",
             "http://localhost:*",
             "http://[::1]:*",
             f"https://{NGROK_HOST}",
+            f"https://{PUBLIC_HOST}",
         ],
     ),
 )
