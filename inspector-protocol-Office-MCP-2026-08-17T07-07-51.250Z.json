@@ -1,0 +1,235 @@
+[
+  {
+    "id": "c4b587c3-d183-42b8-b6fd-0c1b4a0eef8e",
+    "timestamp": "2026-08-17T07:03:32.266Z",
+    "direction": "request",
+    "origin": "client",
+    "message": {
+      "method": "initialize",
+      "params": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+          "sampling": {},
+          "elicitation": {
+            "form": {},
+            "url": {}
+          },
+          "roots": {
+            "listChanged": true
+          },
+          "tasks": {
+            "list": {},
+            "cancel": {},
+            "requests": {
+              "sampling": {
+                "createMessage": {}
+              },
+              "elicitation": {
+                "create": {}
+              }
+            }
+          },
+          "extensions": {
+            "io.modelcontextprotocol/tasks": {},
+            "io.modelcontextprotocol/ui": {
+              "mimeTypes": [
+                "text/html;profile=mcp-app"
+              ]
+            }
+          }
+        },
+        "clientInfo": {
+          "name": "mcp-inspector",
+          "version": "0.0.0"
+        }
+      },
+      "jsonrpc": "2.0",
+      "id": 0
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 0,
+      "result": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+          "experimental": {},
+          "prompts": {
+            "listChanged": false
+          },
+          "resources": {
+            "subscribe": false,
+            "listChanged": false
+          },
+          "tools": {
+            "listChanged": false
+          }
+        },
+        "serverInfo": {
+          "name": "office-weather-demo",
+          "version": "1.29.0"
+        }
+      }
+    },
+    "duration": 20
+  },
+  {
+    "id": "60d4318f-eec1-4a9a-8c4c-abddf2456d3f",
+    "timestamp": "2026-08-17T07:03:32.289Z",
+    "direction": "notification",
+    "origin": "client",
+    "message": {
+      "jsonrpc": "2.0",
+      "method": "notifications/initialized"
+    }
+  },
+  {
+    "id": "e1657b64-ea20-40fa-a60d-5d18b90aa922",
+    "timestamp": "2026-08-17T07:03:32.323Z",
+    "direction": "request",
+    "origin": "client",
+    "message": {
+      "method": "tools/list",
+      "jsonrpc": "2.0",
+      "id": 1,
+      "params": {
+        "_meta": {
+          "progressToken": 1
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "tools": [
+          {
+            "name": "get_weather",
+            "description": "\n    Fetch current weather for one of our office locations only. Accepts,\n    case-insensitively:\n      - an office name (e.g. \"Office 1\")\n      - a city (e.g. \"Delhi\")\n      - a country (e.g. \"India\" — returns weather for every office there)\n\n    Args:\n        location: Office name, city, or country to get weather for.\n    ",
+            "inputSchema": {
+              "properties": {
+                "location": {
+                  "title": "Location",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "location"
+              ],
+              "title": "get_weatherArguments",
+              "type": "object"
+            },
+            "outputSchema": {
+              "properties": {
+                "result": {
+                  "title": "Result",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "result"
+              ],
+              "title": "get_weatherOutput",
+              "type": "object"
+            }
+          }
+        ]
+      }
+    },
+    "duration": 34
+  },
+  {
+    "id": "4eb991e4-6ef6-4cf6-b90a-1952595cb148",
+    "timestamp": "2026-08-17T07:03:32.324Z",
+    "direction": "request",
+    "origin": "client",
+    "message": {
+      "method": "prompts/list",
+      "jsonrpc": "2.0",
+      "id": 2,
+      "params": {
+        "_meta": {
+          "progressToken": 2
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "result": {
+        "prompts": [
+          {
+            "name": "guardrails",
+            "description": "Guardrails shared by every sports-expert persona.",
+            "arguments": []
+          },
+          {
+            "name": "cricket_expert",
+            "description": "Persona instructions for the Cricket Expert.",
+            "arguments": []
+          },
+          {
+            "name": "badminton_expert",
+            "description": "Persona instructions for the Badminton Expert.",
+            "arguments": []
+          }
+        ]
+      }
+    },
+    "duration": 36
+  },
+  {
+    "id": "74293203-2960-46e5-bdcb-665daab69721",
+    "timestamp": "2026-08-17T07:03:32.324Z",
+    "direction": "request",
+    "origin": "client",
+    "message": {
+      "method": "resources/list",
+      "jsonrpc": "2.0",
+      "id": 3,
+      "params": {
+        "_meta": {
+          "progressToken": 3
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "result": {
+        "resources": [
+          {
+            "name": "get_office_locations",
+            "uri": "offices://locations",
+            "description": "Returns the list of company office locations (by city name).",
+            "mimeType": "text/plain"
+          }
+        ]
+      }
+    },
+    "duration": 37
+  },
+  {
+    "id": "2e402a81-0f66-4632-8b6f-b0c0f0eb873c",
+    "timestamp": "2026-08-17T07:03:32.324Z",
+    "direction": "request",
+    "origin": "client",
+    "message": {
+      "method": "resources/templates/list",
+      "jsonrpc": "2.0",
+      "id": 4,
+      "params": {
+        "_meta": {
+          "progressToken": 4
+        }
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 4,
+      "result": {
+        "resourceTemplates": []
+      }
+    },
+    "duration": 38
+  }
+]

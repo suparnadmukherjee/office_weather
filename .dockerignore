@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+.vscode/
+*.md
+*.pdf
+*.svg
+*.json
+streamlit_app.py
+sports_chatbot.py

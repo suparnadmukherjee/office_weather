@@ -1,0 +1,5 @@
+mcp[cli]<2.0.0
+requests
+anthropic[mcp]
+openai
+streamlit
